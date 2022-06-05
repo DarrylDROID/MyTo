@@ -9,9 +9,18 @@ import SwiftUI
 
 struct MarketView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+        Text("Crptocurrency List")
     }
+        .padding()
+        .frame(maxHeight: .infinity, alignment: .top)
+        .padding(.top, 20)
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
+    }
+    
 }
+
 
 struct MarketView_Previews: PreviewProvider {
     static var previews: some View {

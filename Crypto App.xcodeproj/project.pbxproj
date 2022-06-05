@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0415CFFE284CBBC9006702E1 /* AddWishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415CFFD284CBBC9006702E1 /* AddWishlist.swift */; };
+		0415D000284CCF3F006702E1 /* CoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415CFFF284CCF3F006702E1 /* CoinDetail.swift */; };
+		0415D002284CD988006702E1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D001284CD988006702E1 /* Profile.swift */; };
+		0415D004284CD9AC006702E1 /* Edit Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415D003284CD9AC006702E1 /* Edit Profile.swift */; };
 		04397B2E283C5C3F003FFAE8 /* Crypto_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04397B2D283C5C3F003FFAE8 /* Crypto_App.swift */; };
 		04397B30283C5C3F003FFAE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04397B2F283C5C3F003FFAE8 /* ContentView.swift */; };
 		04397B32283C5C42003FFAE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04397B31283C5C42003FFAE8 /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0415CFFD284CBBC9006702E1 /* AddWishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishlist.swift; sourceTree = "<group>"; };
+		0415CFFF284CCF3F006702E1 /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
+		0415D001284CD988006702E1 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		0415D003284CD9AC006702E1 /* Edit Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Profile.swift"; sourceTree = "<group>"; };
 		04397B2A283C5C3F003FFAE8 /* Crypto App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04397B2D283C5C3F003FFAE8 /* Crypto_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_App.swift; sourceTree = "<group>"; };
 		04397B2F283C5C3F003FFAE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				04397B3E283C7870003FFAE8 /* HomeView.swift */,
+				0415D001284CD988006702E1 /* Profile.swift */,
+				0415D003284CD9AC006702E1 /* Edit Profile.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -96,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				04397B44283C790D003FFAE8 /* WishlistView.swift */,
+				0415CFFD284CBBC9006702E1 /* AddWishlist.swift */,
+				0415CFFF284CCF3F006702E1 /* CoinDetail.swift */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -171,7 +183,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04397B3F283C7870003FFAE8 /* HomeView.swift in Sources */,
+				0415D002284CD988006702E1 /* Profile.swift in Sources */,
+				0415D004284CD9AC006702E1 /* Edit Profile.swift in Sources */,
 				04397B30283C5C3F003FFAE8 /* ContentView.swift in Sources */,
+				0415D000284CCF3F006702E1 /* CoinDetail.swift in Sources */,
+				0415CFFE284CBBC9006702E1 /* AddWishlist.swift in Sources */,
 				04397B42283C7897003FFAE8 /* MarketView.swift in Sources */,
 				04397B45283C790D003FFAE8 /* WishlistView.swift in Sources */,
 				04397B2E283C5C3F003FFAE8 /* Crypto_App.swift in Sources */,
