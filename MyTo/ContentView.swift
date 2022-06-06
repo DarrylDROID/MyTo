@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var vm: MarketViewModel
     var body: some View {
         TabView {
                 HomeView()
@@ -35,6 +36,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        
+            
     }
 }
