@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditProfile: View {
-    @Binding var profile: Profile
+    @Binding var profile: ProfileModel
        
        var body: some View {
            List {
@@ -16,6 +16,11 @@ struct EditProfile: View {
                    Text("Username:").bold()
                    Divider()
                    TextField("Username", text: $profile.username)
+               }
+               HStack {
+                   Text("Email:").bold()
+                   Divider()
+                   TextField("Email", text: $profile.email)
                }
                HStack {
                    Text("Birthday:").bold()
@@ -28,15 +33,16 @@ struct EditProfile: View {
                    TextField("Address", text: $profile.address)
                }
                HStack {
-                   Text("Number:").bold()
+                   Text("Phone:").bold()
                    Divider()
-                   TextField("Number", text: $profile.number)
+                   TextField("Phone", text: $profile.phone)
                }
            }
        }
+}
+
    struct EditProfile_Previews: PreviewProvider {
        static var previews: some View {
-           EditProfile(profile: .constant(Profile.default))
+           EditProfile(profile: .constant(.default))
        }
-   }
    }

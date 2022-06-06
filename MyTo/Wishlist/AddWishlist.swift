@@ -7,54 +7,99 @@
 
 import SwiftUI
 
-struct AddWishlist: View {
+struct Wishlist: View {
+    @Binding var coin: CoinModel?
+    
     var body: some View {
-        VStack {
-            Text("Add to wishlist").font(.body).fontWeight(.heavy).padding(.trailing, 250)
-        
-            Image("btc")
-                .resizable()
-                .frame(width:200, height:200)
-                .padding()
-                .cornerRadius(20)
-                .shadow(radius: 10)
-                .padding(.top, 20)
-            Text("Bitcoin").font(.title).fontWeight(.light)
-            ZStack {
-                RoundedRectangle(cornerRadius: 30).fill(.white).frame(width: 180, height: 35).shadow(radius: 15).padding()
-                Text("Amount").fontWeight(.light)
-                
+        ZStack{
+            if let coin = coin{
+                AddWishlist(coin: coin)
             }
-            ZStack{
-                RoundedRectangle(cornerRadius: 30).fill(.white).frame(width: 180, height: 35).shadow(radius: 15)
-                Text("Target Price").fontWeight(.light)
-            }
-        
-            Spacer()
-            Button(action: {print("Your Wishlist Has Been Saved!")}){
-                HStack{
-                    Text("Save").fontWeight(.semibold).frame(maxWidth: .infinity, alignment: .center)
-                    Spacer()
-                }
-            }
-            .padding()
-            .background(Color.blue)
-            .cornerRadius(10)
-            .foregroundColor(Color.white)
-            .padding(.bottom, 20)
-
         }
         
-        .padding()
-        .frame(maxHeight: .infinity, alignment: .top)
-        .padding(.top, 50)
-        .navigationBarHidden(true)
-        .ignoresSafeArea()
+    }
+}
+
+struct AddWishlist: View {
+    
+    let coin: CoinModel
+    
+    init(coin: CoinModel){
+        self.coin = coin
+    }
+    
+    @EnvironmentObject private var vm: MarketViewModel
+    @State private var quantityText: String = ""
+    
+    var body: some View {
+        
+            VStack{
+                Text("Add to wishlist")
+                    .bold()
+                    .padding(.bottom, 40)
+                Group{
+                    CoinImageView(coin: coin)
+                        .frame(width: 125, height: 125)
+                    Text(coin.name)
+                        .padding(.vertical, 10)
+                    HStack{
+                        Text("Current Value")
+                        Spacer()
+                        Text(coin.currentPrice.asCurrencyWith2Decimals())
+                    }
+                    .padding(.top, 40)
+                    Divider()
+                    HStack{
+                        Text("Amount: ")
+                        Spacer()
+                        TextField("Ex: 1.4", text: $quantityText)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.decimalPad)
+                    }
+                    Divider()
+                    HStack{
+                        Text("Current Value:")
+                        Spacer()
+                        Text(getCurrentValue().asCurrencyWith2Decimals())
+                    }
+                    .padding(.bottom, 40)
+                    Button(action: {
+                        saveButtonPressed()
+                    }, label: {
+                        Text("Save")
+                            .foregroundColor(.white)
+                            .frame(width: 200, height: 40)
+                            .background(Color.blue)
+                            .cornerRadius(15)
+                            .padding()
+                    })
+                }
+                Spacer()
+            }
+            .padding()
+        
     }
 }
 
 struct AddWishlist_Previews: PreviewProvider {
     static var previews: some View {
-        AddWishlist()
+        NavigationView{
+        AddWishlist(coin: dev.coin)
+            .environmentObject(dev.marketVM)
+        }
+    }
+}
+
+extension AddWishlist{
+    public func getCurrentValue() -> Double{
+        if let quantity = Double(quantityText){
+            return quantity * (coin.currentPrice )
+        }
+        return 0
+    }
+    public func saveButtonPressed(){
+        guard let amount = Double(quantityText) else{return}
+        
+        vm.updateWishlist(coin: coin, amount: amount)
     }
 }

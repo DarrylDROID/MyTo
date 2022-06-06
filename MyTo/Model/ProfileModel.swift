@@ -9,9 +9,10 @@ import Foundation
 
 struct ProfileModel {
     var username: String
+    var email: String
     var birthday: String
     var address: String
-    var number: String
+    var phone: String
     
-    static let `default` = Profile(username: "Darryl", birthday: "April 29", address: "Taman Wisata Regency", number: "087852626209")
+    static let `default` = ProfileModel(username: "Darryl", email: "darryl16888@gmail.com", birthday: "April 29", address: "Citraland", phone: "087852626209")
 }

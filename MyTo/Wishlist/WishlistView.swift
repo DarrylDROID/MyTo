@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct WishlistView: View {
+    
+    @EnvironmentObject private var vm: MarketViewModel
+    
     var body: some View {
-        NavigationView{
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                Text("My Wishlist")
-            }
-            List {
-                
-            }
-        }
-        .navigationBarTitleDisplayMode(.inline)
+        VStack {
+            allCoinList
+    
         }
     }
 }
@@ -26,5 +22,24 @@ struct WishlistView: View {
 struct WishlistView_Previews: PreviewProvider {
     static var previews: some View {
         WishlistView()
+            .environmentObject(dev.marketVM)
+    }
+}
+
+extension WishlistView{
+    private var allCoinList: some View{
+        VStack{
+            Text("My Wishlist")
+                .font(.title)
+                .bold()
+            List{
+                ForEach(vm.wishListCoins){coin in
+                    CoinRowView(coin: coin, showHoldingsColumn: true)
+                        .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                }
+            }
+            .listStyle(PlainListStyle())
+        }
+        .padding()
     }
 }
